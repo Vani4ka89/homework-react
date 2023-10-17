@@ -1,12 +1,12 @@
 .wrap {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: flex-end;
 }
 
 .wrap h2 {
     color: darkblue;
-    align-self: flex-start;
+    align-self: flex-end;
 }
 
 .wrap:not(:last-child) {
