@@ -1,0 +1,23 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.wrap h2 {
+    color: darkblue;
+    align-self: flex-start;
+}
+
+.wrap:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.wrap img {
+    width: 200px;
+}
+
+.wrap p {
+    font-size: 24px;
+    font-style: italic;
+}
