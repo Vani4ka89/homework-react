@@ -1,0 +1,14 @@
+.PostDetails {
+    border: 2px solid red;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #ee5316;
+    text-align: center;
+    background-color: lightgray;
+    margin-bottom: 20px;
+}
+
+.PostDetails p {
+    font-size: 20px;
+    font-style: italic;
+    color: blueviolet;
+}

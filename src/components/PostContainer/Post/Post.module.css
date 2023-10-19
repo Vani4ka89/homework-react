@@ -1,0 +1,24 @@
+.Post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 15px;
+    border: 1px solid darkblue;
+    width: calc(10% - 22px);
+    min-height: 200px;
+    box-shadow: 5px 5px 5px green;
+    text-align: center;
+    background-color: lightblue;
+}
+
+.btn {
+    border-radius: 0 0 15px 15px;
+    transition: all ease 300ms;
+}
+
+.btn:hover {
+    background-color: green;
+    color: yellow;
+    cursor: pointer;
+}
