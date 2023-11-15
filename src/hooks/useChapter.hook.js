@@ -3,7 +3,7 @@ import {useContext} from "react";
 import {Context} from "../hoc/ContextProvider";
 
 const useChapter = () => {
-    const [chapter, setChapter] = useContext(Context)
+    const [chapter, setChapter] = useContext(Context);
     return {
         chapter,
         setChapter
@@ -12,4 +12,4 @@ const useChapter = () => {
 
 export {
     useChapter
-}
+};

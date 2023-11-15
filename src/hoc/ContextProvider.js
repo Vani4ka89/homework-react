@@ -1,9 +1,8 @@
 import React, {createContext, useState} from 'react';
 
-
 const Context = createContext(null);
 const ContextProvider = ({children}) => {
-    const state = useState(null)
+    const state = useState(null);
 
     return (
         <Context.Provider value={state}>

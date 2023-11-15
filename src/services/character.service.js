@@ -7,4 +7,4 @@ const characterService = {
 
 export {
     characterService
-}
+};

@@ -8,7 +8,7 @@ import css from './Episodes.module.css';
 const Episodes = () => {
     const [episodesRes, setEpisodesRes] = useState({prev: null, next: null, results: []});
     const [query, setQuery] = useSearchParams({page: '1'});
-    const page = query.get('page');
+    const page = +query.get('page');
 
     useEffect(() => {
         episodeService.getAll(page).then(({data: {info: {prev, next}, results}}) => setEpisodesRes({
@@ -20,14 +20,14 @@ const Episodes = () => {
 
     const prev = () => {
         setQuery(prev => {
-            prev.set('page', `${+page - 1}`);
+            prev.set('page', `${page - 1}`);
             return prev;
         })
     }
 
     const next = () => {
         setQuery(prev => {
-            prev.set('page', `${+page + 1}`);
+            prev.set('page', `${page + 1}`);
             return prev;
         })
     }
