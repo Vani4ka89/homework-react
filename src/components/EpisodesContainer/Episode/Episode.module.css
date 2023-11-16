@@ -1,0 +1,11 @@
+.Episode {
+    border: 2px solid #02022f;
+    width: calc(25% - 4px);
+    text-align: center;
+}
+
+.Episode:hover {
+    background-color: #020241;
+    color: snow;
+    cursor: pointer;
+}
