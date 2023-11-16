@@ -1,45 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
-import {episodeService} from "../../../services";
 import {Episode} from "../Episode/Episode";
 import css from './Episodes.module.css';
+import {episodeActions} from "../../../redux";
 
 const Episodes = () => {
-    const [episodesRes, setEpisodesRes] = useState({prev: null, next: null, results: []});
+    const {episodes, prev, next} = useSelector(state => state.episodes);
+    const dispatch = useDispatch();
     const [query, setQuery] = useSearchParams({page: '1'});
     const page = +query.get('page');
 
     useEffect(() => {
-        episodeService.getAll(page).then(({data: {info: {prev, next}, results}}) => setEpisodesRes({
-            prev,
-            next,
-            results
-        }))
-    }, [page]);
+        dispatch(episodeActions.getAll({page}));
+    }, [page, dispatch]);
 
-    const prev = () => {
+    const prevPage = () => {
         setQuery(prev => {
             prev.set('page', `${page - 1}`);
             return prev;
         })
-    }
+    };
 
-    const next = () => {
+    const nextPage = () => {
         setQuery(prev => {
             prev.set('page', `${page + 1}`);
             return prev;
         })
-    }
+    };
 
     return (
         <div>
             <div className={css.Episodes}>
-                {episodesRes.results.map(episode => <Episode key={episode.id} episode={episode}/>)}
+                {episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}
             </div>
             <div className={css.button}>
-                <button disabled={!episodesRes.prev} onClick={prev}>prev</button>
-                <button disabled={!episodesRes.next} onClick={next}>next</button>
+                <button disabled={!prev} onClick={prevPage}>prev</button>
+                <button disabled={!next} onClick={nextPage}>next</button>
             </div>
         </div>
     );

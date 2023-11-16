@@ -1,16 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
-import {characterService} from "../../../services";
 import {Character} from "../Character/Character";
+import {characterActions} from "../../../redux";
 
 const Characters = () => {
+    const {characters} = useSelector(state => state.characters);
+    const dispatch = useDispatch();
     const {ids} = useParams();
-    const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
-        characterService.getByIds(ids).then(({data}) => setCharacters(data));
-    }, [ids]);
+        dispatch(characterActions.getByIds({ids}));
+    }, [ids, dispatch]);
 
     return (
         <div>

@@ -7,6 +7,6 @@ const store = configureStore({
         characters: characterReducer,
         episodes: episodeReducer
     }
-})
+});
 
 export {store};

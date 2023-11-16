@@ -1,10 +1,11 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 
 import css from './Header.module.css';
-import {useChapter} from "../../hooks/useChapter.hook";
 
 const Header = () => {
-    const {chapter} = useChapter();
+    const {chapter} = useSelector(state => state.episodes);
+
     return (
         <div className={css.Header}>
             {chapter ? <h1>{chapter}</h1> :

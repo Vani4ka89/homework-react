@@ -8,7 +8,8 @@ const CharactersPage = () => {
 
     const back = () => {
         navigate(-1);
-    }
+    };
+
     return (
         <div>
             <button onClick={back}>back</button>

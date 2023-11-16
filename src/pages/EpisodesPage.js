@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
+import {useDispatch} from "react-redux";
 
 import {Episodes} from "../components";
-import {useChapter} from "../hooks/useChapter.hook";
+import {episodeActions} from "../redux";
 
 const EpisodesPage = () => {
-    const {setChapter} = useChapter();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setChapter(null);
-    }, [setChapter]);
+        dispatch(episodeActions.setChapter(null));
+    }, [dispatch]);
 
     return (
         <div>
